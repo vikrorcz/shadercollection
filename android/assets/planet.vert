@@ -1,7 +1,7 @@
 #version 100
 
 #ifdef GL_ES
-#define PRECISION mediump
+#define PRECISION highp
 precision PRECISION float;
 precision PRECISION int;
 #else

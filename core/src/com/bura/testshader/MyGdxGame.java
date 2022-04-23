@@ -130,7 +130,7 @@ public class MyGdxGame extends ApplicationAdapter {
 		//maskSprite = new Sprite(transparentTexture);
 		maskSprite = new Sprite(new TextureRegion(maskTexture,0,0,1920,1080));
 
-		backTexture = new Texture("earth4.jpg");
+		backTexture = new Texture("mars.jpg");
 		backSprite = new Sprite(backTexture);
 		backSprite.setSize(1920,1080);
 		backSprite.getTexture().setWrap(Texture.TextureWrap.Repeat, Texture.TextureWrap.ClampToEdge);
@@ -153,19 +153,19 @@ public class MyGdxGame extends ApplicationAdapter {
 
 		batch.setBlendFunctionSeparate(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA, GL20.GL_ONE, GL20.GL_ONE);
 
-		frameBuffer.begin();
-		Gdx.gl.glClearColor(1, 0, 0, 0);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
-		Gdx.gl.glEnable(GL20.GL_BLEND_COLOR);
+		//frameBuffer.begin();
+		//Gdx.gl.glClearColor(1, 0, 0, 0);
+		//Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		//Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
+		//Gdx.gl.glEnable(GL20.GL_BLEND_COLOR);
 		batch.setProjectionMatrix(camera.combined);
 
-		batch.begin();
+		//batch.begin();
 		//batch.setColor(0,0,0,255);
-		spaceSprite.draw(batch);
+		//spaceSprite.draw(batch);
 		//batch.draw(backTexture,0,0,1920,1080);
-		batch.end();
-		frameBuffer.end();
+		//batch.end();
+		//frameBuffer.end();
 
 
 		dt += Gdx.graphics.getDeltaTime();
@@ -198,9 +198,9 @@ public class MyGdxGame extends ApplicationAdapter {
 		//backSprite.setSize(1920,1080);
 
 		//backSprite.setSize(800,600);
-		//batch.begin();
-		//spaceSprite.draw(batch);
-		//batch.end();
+		batch.begin();
+		spaceSprite.draw(batch);
+		batch.end();
 
 		batch.begin();
 		batch.setShader(planetShader);
@@ -208,26 +208,26 @@ public class MyGdxGame extends ApplicationAdapter {
 		planetShader.setUniformf("u_time", dt);
 		planetShader.setUniformf("resolution", new Vector2(Gdx.graphics.getWidth(), Gdx.graphics.getHeight()));
 		backSprite.draw(batch);
-		//Gdx.gl.glActiveTexture(GL20.GL_TEXTURE0);
+		Gdx.gl.glActiveTexture(GL20.GL_TEXTURE0);
 		batch.setShader(null);
 		batch.end();
 
 
 
 		//PLANET MASK
-		maskSprite.setSize(1920,1080);
-		maskSprite.setPosition(0,0);
-		batch.begin();
-		batch.setShader(maskShader);
-		maskShader.setUniformf("resolution", new Vector2(Gdx.graphics.getWidth(), Gdx.graphics.getHeight()));
-		maskShader.setUniformi("u_texture1", 1);
-		maskShader.setUniformi("u_mask", 2);
-		bufferRegion.getTexture().bind(1);
-		textureRegion.getTexture().bind(2);
-		maskSprite.draw(batch);
-		Gdx.gl.glActiveTexture(GL20.GL_TEXTURE0);
-		batch.setShader(null);
-		batch.end();
+		//maskSprite.setSize(1920,1080);
+		//maskSprite.setPosition(0,0);
+		//batch.begin();
+		//batch.setShader(maskShader);
+		//maskShader.setUniformf("resolution", new Vector2(Gdx.graphics.getWidth(), Gdx.graphics.getHeight()));
+		//maskShader.setUniformi("u_texture1", 1);
+		//maskShader.setUniformi("u_mask", 2);
+		//bufferRegion.getTexture().bind(1);
+		//textureRegion.getTexture().bind(2);
+		//maskSprite.draw(batch);
+		//Gdx.gl.glActiveTexture(GL20.GL_TEXTURE0);
+		//batch.setShader(null);
+		//batch.end();
 
 
 
