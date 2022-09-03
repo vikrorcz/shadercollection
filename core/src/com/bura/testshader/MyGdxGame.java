@@ -26,11 +26,11 @@ public class MyGdxGame extends ApplicationAdapter {
 	private final int DESIRED_SHADER = 1;
 	/*
 	 *  |=====================================================================|
-	 *  |    DESIRED_SHADER    |             		type             	      |
+	 *  |    DESIRED_SHADER    |             	type                      |
 	 *  |----------------------|----------------------------------------------|
 	 *  |          1           |   bubble wave shader                         |
 	 *  |          2           |   texture region shape changing wave shader  |
-	 *  |          3           |   planet shader							  |
+	 *  |          3           |   planet shader				  |
 	 *  |          4           |   water waves + rays shader                  |
 	 *  |=====================================================================|
 	 */
